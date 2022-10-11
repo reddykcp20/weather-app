@@ -1,7 +1,7 @@
 .divWeatherMain {
-    height: 500px;
-    width: 500px;
-    justify-content: center;
+    height: 300px;
+    width: 400px;
+    margin: auto;
     padding: 60px 1rem;
     background: linear-gradient(
       180deg,
@@ -29,4 +29,18 @@
   margin-top: 10px;
   color: white;
   filter: drop-shadow(1px 1px 10px white);
+}
+
+.marginAuto{
+  margin: auto;
+  text-align: center;
+}
+
+.sameLine{
+  display: inline-block;
+  padding: 4px;
+}
+
+.margin{
+  margin-top: 30px;
 }

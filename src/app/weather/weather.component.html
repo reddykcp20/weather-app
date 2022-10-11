@@ -1,33 +1,35 @@
-<form (ngSubmit)="onSearch()" name="searchForm" [formGroup]="searchForm">
-  <div class="">
-    <mat-form-field class="full-width" appearance="outline">
+<div class="marginAuto">
+  <form (ngSubmit)="onSearch()" name="searchForm" [formGroup]="searchForm">
+    <mat-form-field class="sameLine" appearance="outline">
       <mat-label>Enter City</mat-label>
       <input formControlName="city_name" matInput placeholder="Enter City Name" required />
     </mat-form-field>
-    <button (click)="onSearch()" mat-flat-button color="primary">Search</button>
+    <button class="sameLine" (click)="onSearch()" mat-flat-button color="primary">Search</button>
+  </form>
+  <div class="divWeatherMain">
+    <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+      <i class="fas fa-3x fa-sun sun"></i>
+    </div>
+    <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+      <i class="fas fa-3x fa-moon moon"></i>
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 40px; margin-top: 20px">
+      {{ WeatherData.temp_celcius }}°
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 20px">
+      Min temp: {{ WeatherData.temp_min }}° / Max temp: {{ WeatherData.temp_max }}°
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 30px">
+      Feels Like: {{ WeatherData.temp_feels_like }}°
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 30px">
+      City Name: {{ WeatherData.name }}
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 30px">
+      Humidity: {{ WeatherData.main.humidity }}%
+    </div>
   </div>
-</form>
-<div class="divWeatherMain">
-  <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
-    <i class="fas fa-3x fa-sun sun"></i>
-  </div>
-  <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
-    <i class="fas fa-3x fa-moon moon"></i>
-  </div>
-  <div class="weatherWidgetRow" style="font-size: 32px; margin-top: 5px">
-    {{ WeatherData.temp_celcius }}°
-  </div>
-  <div class="weatherWidgetRow" style="font-size: 12px">
-    {{ WeatherData.temp_min }}° / {{ WeatherData.temp_max }}°
-  </div>
-  <div class="weatherWidgetRow" style="font-size: 12px">
-    Feels Like: {{ WeatherData.temp_feels_like }}°
-  </div>
-  <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 10px">
-    {{ WeatherData.name }}
-  </div>
-  <div class="weatherWidgetRow" style="font-size: 12px">
-    Humidity: {{ WeatherData.main.humidity }}%
+  <div class="margin">
+    <button (click)="onLogout()" mat-flat-button color="primary">Logout</button>
   </div>
 </div>
-<button (click)="onLogout()" mat-flat-button color="primary">Logout</button>
